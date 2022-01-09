@@ -4,14 +4,18 @@ const { body, validationResult } = require('express-validator');
 const bycrpt = require (`bcrypt`)
 const saltRounds = 10;
 const con = require(`../database/connect`)
-router.post(`/signup`,body('email').isEmail(), (req, res)=>{ 
+const que = require(`../database/query`)
+
+router.post(`/signup`,
+body('email').isEmail(), 
+(req, res)=>{ 
     const body = req.body;
     const email = req.body.email;
     const password = req.body.password;
     const username = req.body.username;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).send("invalid email");
+     return res.status(400).send("invalid email");
     }
     if(!email || !password || !username)
     {
@@ -27,8 +31,9 @@ router.post(`/signup`,body('email').isEmail(), (req, res)=>{
     }
     else
     {
-        con.connect();
+        con.toconnect();
         res.send("hi")
+        que.toquery(`INSERT INTO users (Email, Password, Username) VALUES ('${email}', '${password}', '${username}');`)
     }
 })
 module.exports = router
