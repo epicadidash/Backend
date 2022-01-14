@@ -2,7 +2,7 @@ const express = require(`express`);
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 var crypto = require("crypto");
-const database = require("../../database");
+const database = require("../../database/database");
 const x = crypto
   .createHash("sha512")
   .update("note-ashish-adwait-plus")

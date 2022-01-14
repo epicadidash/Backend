@@ -1,5 +1,5 @@
 const express = require(`express`); //express package imported
-const database = require(`./database.js`); //database connector imported
+const database = require(`./database/database.js`); //database connector imported
 const app = express(); // express function used
 const port = 5000; // port specified
 var cors = require(`cors`); // cors package imported
