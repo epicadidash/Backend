@@ -35,7 +35,7 @@ router.post(`/`, body("email").isEmail(), (req, res) => {
         if (err) throw err;
         if (result.length === 0) {
           res.send("No such user with this email found");
-        } else {
+        } else if (result.length === 1){
           var t = result[0].Password === z;
           if (t === true) {
             res.json({
@@ -48,6 +48,9 @@ router.post(`/`, body("email").isEmail(), (req, res) => {
               Login: "Unsuccessful, Wrong Username and Password combination",
             });
           }
+        }
+        else{
+          res.status(500).send("Internal Server Error")
         }
       }
     );

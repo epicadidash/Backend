@@ -42,8 +42,12 @@ router.post(`/`, body("email").isEmail(), (req, res) => {
               if (err) throw err;
             }
           );
-        } else {
+        } else if (result.length === 1)
+        {
           res.status(400).send("Another Account registered with this email");
+        }
+        else{
+          res.status(500).send("Internal Server Error")
         }
       }
     );

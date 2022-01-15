@@ -8,6 +8,7 @@ app.use(express.json()); //used json
 //Declaring Routes
 app.use(`/api/authentication`, require(`./routes/auth/authenticate`)); //authenication route
 //app.use(`/api/authenication`, require(`./routes/note`)); //note route
+app.use(``, require(`./routes/auth/authenticate`)); 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`); //app starts listening on port specified
 });
