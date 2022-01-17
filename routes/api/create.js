@@ -1,10 +1,10 @@
-const express = require(`express`);
-const router = express.Router();
-const database = require("../../database/database");
-var con = database.con; 
+const express = require(`express`);  //express package imported
+const router = express.Router(); //using express router module
+const database = require("../../database/database"); //database module imported
+var con = database.con; //database connector imported
 const date = new Date();
-let timestamp = date.toUTCString();
-router.post(`/`,(req,res) =>{
+let timestamp = date.toUTCString(); //getting current time
+router.post(`/`,(req,res) =>{ //using post request for creating note
     const body = req.body;
     const title  = body.title;
     const description = body.description;
