@@ -1,7 +1,10 @@
 # Backend
 Notes API with CRUD functions
-Install dependencies 
+## Install dependencies 
 ```
 npm i
 ```
-
+## Run 
+``` 
+npm start
+```
