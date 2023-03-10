@@ -11,5 +11,9 @@ npm start
 # Routes
 ## CRUD Routes 
 ```
-/api
+/api/notes
+```
+## Authentication Routes
+```
+/api/authentication
 ```
