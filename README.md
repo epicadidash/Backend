@@ -8,3 +8,8 @@ npm i
 ``` 
 npm start
 ```
+# Routes
+## CRUD Routes 
+```
+/api
+```
